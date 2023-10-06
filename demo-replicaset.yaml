@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Replicaset
+metadata:
+  name: demo-replicaset
+  labels:
+   app: my-app
+spec:
+  selector:
+  replicas: 2
+  template:
+    metadata:
+      name: nginx
+      labels:
+       app: nginx
+       type: ecommerse
+       tier: frontend
+    spec:
+      containers:
+       - name: nginx
+         image: nginx
